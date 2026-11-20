@@ -1,5 +1,5 @@
 resource "aws_iam_role" "bastion" {
-  name = local.common_tags.Name
+  name = local.common_tags.Name # roboshop-dev-bastion
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
@@ -19,10 +19,12 @@ resource "aws_iam_role" "bastion" {
 
   tags = local.common_tags
 }
+
 resource "aws_iam_role_policy_attachment" "bastion" {
   role       = aws_iam_role.bastion.name
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
+
 resource "aws_iam_instance_profile" "bastion" {
   name = local.common_tags.Name
   role = aws_iam_role.bastion.name

@@ -9,8 +9,9 @@ resource "aws_instance" "bastion" {
     partition_number = 4
     extra_disk_size    = 20
   })
-   user_data_replace_on_change = true
+  user_data_replace_on_change = true
 
+  # we are going to run terraform commands from this instance, so it needs more disk
   root_block_device {
     volume_type           = "gp3"
     volume_size           = 50
