@@ -11,7 +11,7 @@ variable "zone_id" {
 }
 
 variable "domain_name" {
-    default = "daws92s.store"
+    default = "daws92s.shop"
 }
 
 variable "app_version" {
